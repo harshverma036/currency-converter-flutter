@@ -65,18 +65,12 @@ class CurrencyConverterPage extends StatelessWidget {
             Container(
               margin: const EdgeInsets.all(5),
               child: ElevatedButton(
-                style: ButtonStyle(
-                  backgroundColor: const MaterialStatePropertyAll(
-                    Colors.black,
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.black,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
                   ),
-                  shape: MaterialStatePropertyAll(
-                    RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                  ),
-                  minimumSize: const MaterialStatePropertyAll(
-                    Size(double.infinity, 50),
-                  ),
+                  minimumSize: const Size(double.infinity, 50),
                 ),
                 onPressed: () {
                   // debug, release, profile
