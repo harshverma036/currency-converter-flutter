@@ -40,7 +40,7 @@ class _CurrencyConverterPageState extends State<CurrencyConverterPage> {
             Container(
               margin: const EdgeInsets.all(5),
               child: Text(
-                'INR $result',
+                'INR ${result != 0 ? result.toStringAsFixed(2) : result.toStringAsFixed(0)}',
                 style: const TextStyle(
                   fontSize: 45,
                   fontWeight: FontWeight.bold,
