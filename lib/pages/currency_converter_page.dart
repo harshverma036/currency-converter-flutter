@@ -13,6 +13,17 @@ class _CurrencyConverterPageState extends State<CurrencyConverterPage> {
   TextEditingController textEditingController = TextEditingController();
 
   @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    textEditingController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     const border = OutlineInputBorder(
       // Color(AxAARRGGBB)
