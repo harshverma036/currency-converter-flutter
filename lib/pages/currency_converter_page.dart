@@ -1,12 +1,20 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-class CurrencyConverterPage extends StatelessWidget {
+class CurrencyConverterPage extends StatefulWidget {
   const CurrencyConverterPage({super.key});
 
   @override
+  State<CurrencyConverterPage> createState() => _CurrencyConverterPageState();
+}
+
+class _CurrencyConverterPageState extends State<CurrencyConverterPage> {
+  double result = 0;
+  TextEditingController textEditingController = TextEditingController();
+
+  @override
   Widget build(BuildContext context) {
-    final border = OutlineInputBorder(
+    const border = OutlineInputBorder(
       // Color(AxAARRGGBB)
       borderSide: BorderSide(
         color: Colors.black,
@@ -31,9 +39,9 @@ class CurrencyConverterPage extends StatelessWidget {
           children: [
             Container(
               margin: const EdgeInsets.all(5),
-              child: const Text(
-                "0",
-                style: TextStyle(
+              child: Text(
+                'INR $result',
+                style: const TextStyle(
                   fontSize: 45,
                   fontWeight: FontWeight.bold,
                   color: Color.fromARGB(255, 255, 255, 255),
@@ -44,18 +52,19 @@ class CurrencyConverterPage extends StatelessWidget {
               padding: const EdgeInsets.all(6),
               margin: const EdgeInsets.only(bottom: 3),
               child: TextField(
+                controller: textEditingController,
                 style: const TextStyle(
                   color: Colors.black,
                 ),
                 keyboardType: const TextInputType.numberWithOptions(
                   decimal: true,
                 ),
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   hintText: "Please enter the amount in USD",
-                  hintStyle: const TextStyle(
+                  hintStyle: TextStyle(
                     color: Colors.black,
                   ),
-                  prefixIcon: const Icon(
+                  prefixIcon: Icon(
                     Icons.monetization_on_outlined,
                   ),
                   prefixIconColor: Colors.black,
@@ -79,9 +88,9 @@ class CurrencyConverterPage extends StatelessWidget {
                 ),
                 onPressed: () {
                   // debug, release, profile
-                  if (kDebugMode) {
-                    print("clicked convert");
-                  }
+                  setState(() {
+                    result = double.parse(textEditingController.text) * 82;
+                  });
                 },
                 child: const Text("Convert"),
               ),
